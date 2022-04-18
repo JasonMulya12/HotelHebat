@@ -28,17 +28,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-//Route::middleware(['auth', 'admin'])->group(function(){
-//    Route::get('admin', function(){
-//       return 'admin page';
-//    });
-//});
 
-
-Route::resource('tipekamar', TipeKamarController::class)->middleware(['auth']);
-Route::resource('fasilitaskamar', FasilitasKamarController::class)->middleware(['auth']);
-Route::resource('fasilitashotel', FasilitasHotelController::class)->middleware(['auth']);
-Route::resource('resepsionis', ResepsionisController::class)->middleware(['auth']);
-Route::resource('reservasi', ReservasiController::class)->middleware(['auth']);
-Route::resource('pemesanan', PemesananController::class)->middleware(['auth']);
+Route::resource('tipekamar', TipeKamarController::class)->middleware(['auth', 'admin']);
+Route::resource('fasilitaskamar', FasilitasKamarController::class)->middleware(['auth', 'admin']);
+Route::resource('fasilitashotel', FasilitasHotelController::class)->middleware(['auth', 'admin']);
+Route::resource('resepsionis', ResepsionisController::class)->middleware(['auth', 'admin']);
+Route::resource('reservasi', ReservasiController::class)->middleware(['auth', 'resepsionis']);
+Route::resource('pemesanan', PemesananController::class)->middleware(['auth', 'user']);
 Route::resource('dashboard', DashboardController::class);

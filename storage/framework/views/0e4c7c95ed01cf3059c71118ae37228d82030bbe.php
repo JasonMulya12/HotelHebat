@@ -18,10 +18,8 @@
     <table class="table table-striped">
         <tr>
             <th>No</th>
-            <th>Nama Pemesanan</th>
-            <th>Email </th>
-            <th>Nomor Hp </th>
             <th>Nama Tamu </th>
+            <th>Nomor Hp </th>
             <th>Tipe Kamar </th>
             <th>Tanggal Check In </th>
             <th>Tanggal Check Out </th>
@@ -30,14 +28,13 @@
         <?php $__currentLoopData = $pemesanans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pemesanan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <tr>
             <td><?php echo e(++$i); ?></td>
-            <td><?php echo e($pemesanan->nama_pemesan); ?></td>
-            <td><?php echo e($pemesanan->email); ?></td>
-            <td><?php echo e($pemesanan->no_hp); ?></td>
             <td><?php echo e($pemesanan->nama_tamu); ?></td>
+            <td><?php echo e($pemesanan->no_hp); ?></td>
             <td><?php echo e($pemesanan->tipe_kamar); ?></td>
             <td><?php echo e($pemesanan->tgl_check_in); ?></td>
             <td><?php echo e($pemesanan->tgl_check_out); ?></td>
             <td>
+                    <a class="btn btn-dark" href="<?php echo e(route('pemesanan.edit', $pemesanan->id)); ?>">Struk</a>
                 
             </td>
         </tr>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reservasi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Pemesanan;
 
@@ -13,9 +13,23 @@ class ReservasiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $reservasis = Pemesanan::latest()->paginate(5);
+
+        $reservasis = Pemesanan::when($request->search, function ($query) use ($request) {
+            $query->where('nama_tamu', 'like', "%{$request->search}%");;
+        })->orderBy('created_at', 'desc')->paginate(150);
+
+        $reservasis->appends($request->only('search'));
+
+        if (request()->filter) {
+            $filter = Carbon::parse(request()->filter)->toDateTimeString();
+            $pemesanans = Pemesanan::where('tgl_check_in', '=', "{$filter}")->orderBy('created_at', 'desc')->paginate(5);
+        } else {
+            $data = Pemesanan::latest()->get();
+        }
+        
         return view('reservasi.index', compact('reservasis'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

@@ -34,6 +34,11 @@
                         @if (Route::has('login'))
                     @auth
                         <li class="nav-item"><a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a></li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                        <li class="nav-item"><a class="nav-link" href="route('logout')" onclick="event.preventDefault();
+                                        this.closest('form').submit();">Logout</a></li>
+                        </form>
                     @else
                         <li class="nav-item"><a href="{{ route('login') }}"  class="nav-link">Log in</a></li>
 
@@ -304,7 +309,7 @@
                         </div>
                     </div>
                     <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button></div>
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Pesan</button></div>
                 </form>
             </div>
         </section>

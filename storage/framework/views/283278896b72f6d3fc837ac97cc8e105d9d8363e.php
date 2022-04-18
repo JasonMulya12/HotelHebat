@@ -15,6 +15,16 @@
     <?php endif; ?>
      
     <table class="table table-striped">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <form action="<?php echo e(url()->current()); ?>" autocomplete="off" method="get">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search" name="search">
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
         <tr>
             <th>No</th>
             <th>Nama Tamu</th>

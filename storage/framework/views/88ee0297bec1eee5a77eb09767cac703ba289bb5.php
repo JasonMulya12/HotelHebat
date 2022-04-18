@@ -34,6 +34,11 @@
                         <?php if(Route::has('login')): ?>
                     <?php if(auth()->guard()->check()): ?>
                         <li class="nav-item"><a href="<?php echo e(url('/dashboard')); ?>" class="nav-link">Dashboard</a></li>
+                        <form method="POST" action="<?php echo e(route('logout')); ?>">
+                            <?php echo csrf_field(); ?>
+                        <li class="nav-item"><a class="nav-link" href="route('logout')" onclick="event.preventDefault();
+                                        this.closest('form').submit();">Logout</a></li>
+                        </form>
                     <?php else: ?>
                         <li class="nav-item"><a href="<?php echo e(route('login')); ?>"  class="nav-link">Log in</a></li>
 
@@ -304,7 +309,7 @@
                         </div>
                     </div>
                     <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button></div>
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Pesan</button></div>
                 </form>
             </div>
         </section>

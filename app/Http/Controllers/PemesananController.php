@@ -71,7 +71,7 @@ class PemesananController extends Controller
      */
     public function edit(Pemesanan $pemesanan)
     {
-        //
+        return view('pemesanan.detail', compact('pemesanan'));
     }
 
     /**

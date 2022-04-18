@@ -18,10 +18,8 @@
     <table class="table table-striped">
         <tr>
             <th>No</th>
-            <th>Nama Pemesanan</th>
-            <th>Email </th>
-            <th>Nomor Hp </th>
             <th>Nama Tamu </th>
+            <th>Nomor Hp </th>
             <th>Tipe Kamar </th>
             <th>Tanggal Check In </th>
             <th>Tanggal Check Out </th>
@@ -30,14 +28,13 @@
         @foreach ($pemesanans as $pemesanan)
         <tr>
             <td>{{ ++$i}}</td>
-            <td>{{ $pemesanan->nama_pemesan}}</td>
-            <td>{{ $pemesanan->email}}</td>
-            <td>{{ $pemesanan->no_hp}}</td>
             <td>{{ $pemesanan->nama_tamu}}</td>
+            <td>{{ $pemesanan->no_hp}}</td>
             <td>{{ $pemesanan->tipe_kamar}}</td>
             <td>{{ $pemesanan->tgl_check_in}}</td>
             <td>{{ $pemesanan->tgl_check_out}}</td>
             <td>
+                    <a class="btn btn-dark" href="{{ route('pemesanan.edit', $pemesanan->id) }}">Struk</a>
                 
             </td>
         </tr>

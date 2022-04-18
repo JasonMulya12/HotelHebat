@@ -37,7 +37,7 @@
                                             </div>
                                             <div class="row mb-3">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputRole" type="hidden" placeholder="Enter your Role" name="role" :value="old('role')" required autofocus value="Admin" />
+                                                        <input class="form-control" id="inputRole" type="hidden" placeholder="Enter your Role" name="role" :value="old('role')" required autofocus value="User" />
                                                     </div>
                                             </div>
                                             <div class="row mb-3">
