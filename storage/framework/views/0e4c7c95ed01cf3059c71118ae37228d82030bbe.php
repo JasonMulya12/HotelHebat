@@ -19,6 +19,7 @@
         <tr>
             <th>No</th>
             <th>Nama Tamu </th>
+            <th>Email</th>
             <th>Nomor Hp </th>
             <th>Tipe Kamar </th>
             <th>Tanggal Check In </th>
@@ -29,12 +30,14 @@
         <tr>
             <td><?php echo e(++$i); ?></td>
             <td><?php echo e($pemesanan->nama_tamu); ?></td>
+            <td><?php echo e($pemesanan->email); ?></td>
             <td><?php echo e($pemesanan->no_hp); ?></td>
             <td><?php echo e($pemesanan->tipe_kamar); ?></td>
             <td><?php echo e($pemesanan->tgl_check_in); ?></td>
             <td><?php echo e($pemesanan->tgl_check_out); ?></td>
             <td>
                     <a class="btn btn-dark" href="<?php echo e(route('pemesanan.edit', $pemesanan->id)); ?>">Struk</a>
+                    <a href="<?php echo e(url('myPDF', $pemesanan->id)); ?>" class="btn btn-success">Print</a>
                 
             </td>
         </tr>
